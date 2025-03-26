@@ -2,11 +2,7 @@ import Home from "../pages/page";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
 import "./globals.css";
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout() {
   return (
     <html lang="es">
       <head>

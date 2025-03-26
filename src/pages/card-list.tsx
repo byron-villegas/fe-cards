@@ -5,7 +5,7 @@ import Image from "next/image"; // Use Next.js Image component for optimized ima
 import Card from "@component/models/card";
 
 export default function CardList() {
-    let cards: Card[] = [
+    const cards: Card[] = [
         {
             name: 'Gandalf, White Rider',
             image: 'https://media.wizards.com/2023/ltr/en_54166525b7.png',
@@ -50,7 +50,7 @@ export default function CardList() {
 
     return (
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
-            {cards.map((card: any, index: number) => (
+            {cards.map((card: Card, index: number) => (
                 <div
                     className="col mb-3"
                     id={"card-" + card.name}
