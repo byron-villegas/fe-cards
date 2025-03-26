@@ -33,71 +33,62 @@ export default function CardList() {
         const card = document.getElementById(cardId);
         if (card) {
             const rect = card.getBoundingClientRect();
-            let x, y;
+            let posX, posY;
     
+            // Normalizar eventos de mouse y touch
             if ("touches" in e) {
-                // Handle touch events
-                x = e.touches[0].clientX - rect.left;
-                y = e.touches[0].clientY - rect.top;
+                posX = e.touches[0].clientX - rect.left;
+                posY = e.touches[0].clientY - rect.top;
             } else {
-                // Handle mouse events
-                x = e.clientX - rect.left;
-                y = e.clientY - rect.top;
+                posX = e.clientX - rect.left;
+                posY = e.clientY - rect.top;
             }
     
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * 10; // Adjust rotation intensity
-            const rotateY = ((x - centerX) / centerX) * -10;
+            const width = rect.width;
+            const height = rect.height;
     
+            // Calcular posición relativa al centro de la carta
+            const centerX = width / 2;
+            const centerY = height / 2;
+    
+            // Calcular rotaciones basadas en la posición del mouse o toque
+            const rotateX = ((posY - centerY) / centerY) * -15; // Rotación en X (hacia adelante o atrás)
+            const rotateY = ((posX - centerX) / centerX) * 15; // Rotación en Y (hacia los lados)
+    
+            // Aplicar transformaciones al estilo del elemento
             card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            card.style.transition = "transform 0.1s ease-out"; // Suavizar el movimiento
         }
     };
     
     const handleInteractionEnd = (cardId: string) => {
         const card = document.getElementById(cardId);
         if (card) {
+            // Restablecer transformaciones
             card.style.transform = "rotateX(0deg) rotateY(0deg)";
+            card.style.transition = "transform 0.5s ease"; // Suavizar el regreso
         }
     };
 
     return (
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3 mt-3">
+        <div>
             {cards.map((card: Card, index: number) => (
-                <div
-                    className="col mb-3"
-                    id={"card-" + card.name}
-                    key={'card-' + (index + 1)}
-                    onMouseMove={(e) => handleInteractionMove(e, "card-" + card.name)}
-                    onMouseLeave={() => handleInteractionEnd("card-" + card.name)}
-                    onTouchMove={(e) => handleInteractionMove(e, "card-" + card.name)}
-                    onTouchEnd={() => handleInteractionEnd("card-" + card.name)}
-                >
                     <div
-                        className="card shadow-sm"
-                        style={{
-                            borderRadius: '24px',
-                            border: 'none',
-                            transition: 'transform 0.2s ease', // Smooth transition
-                            perspective: '1000px' // Add perspective for 3D effect
-                        }}
+                        className="card-element" id={card.name + "-" + index} key={card.name + "-" + index}
+                        onMouseMove={(e) => handleInteractionMove(e, card.name + "-" + index)}
+                        onTouchMove={(e) => handleInteractionMove(e, card.name + "-" + index)}
+                        onMouseLeave={() => handleInteractionEnd(card.name + "-" + index)}
+                        onTouchEnd={() => handleInteractionEnd(card.name + "-" + index)}
                     >
                         <Image
-                            className="bd-placeholder-img card-img-top cursor-pointer"
                             id={card.name}
                             src={card.image}
                             width={300} // Adjust width for Next.js Image
                             height={400} // Adjust height for Next.js Image
-                            style={{
-                                borderRadius: '20px',
-                                maxHeight: '480px',
-                                transition: 'transform 0.2s ease' // Smooth transition for the image
-                            }}
                             alt={card.name}
                             title={card.name}
                         />
                     </div>
-                </div>
             ))}
         </div>
     );
