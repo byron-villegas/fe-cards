@@ -62,6 +62,24 @@ body {
     0 55px 35px -20px rgba(0, 0, 0, 0.5);
 }
 
+.cards .card-element {
+  &:nth-child(2) {
+    &, &:before, &:after {
+      animation-delay: 0.25s;
+    }
+  }
+  &:nth-child(3) {
+    &, &:before, &:after {
+      animation-delay: 0.5s;
+    }
+  }
+  &:nth-child(4) {
+    &, &:before, &:after {
+      animation-delay: 0.75s;
+    }
+  }
+}
+
 .card-element.charizard {
   --color1: var(--charizard1);
   --color2: var(--charizard2);
@@ -383,5 +401,11 @@ body {
   .card-element {
     width: clamp(12.9vw, 18vh, 18vw); /* Ajuste dinámico basado en el ancho y alto */
     height: clamp(18vw, 25.2vh, 25.2vw); /* Ajuste dinámico basado en el ancho y alto */
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .cards {
+    flex-direction: row;
   }
 }

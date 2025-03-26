@@ -71,7 +71,7 @@ export default function CardList() {
     };
 
     return (
-        <div>
+        <section className="cards">
             {cards.map((card: Card, index: number) => (
                     <div
                         className="card-element" id={card.name + "-" + index} key={card.name + "-" + index}
@@ -90,6 +90,6 @@ export default function CardList() {
                         />
                     </div>
             ))}
-        </div>
+        </section>
     );
 }
