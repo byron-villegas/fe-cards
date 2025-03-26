@@ -1,8 +1,6 @@
-import Home from "../pages/page";
-import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
-import "./globals.css";
+import Page from "./page";
 
-export default function RootLayout() {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
       <head>
@@ -14,7 +12,8 @@ export default function RootLayout() {
         <link rel="icon" type="image/png" href="/favicon.ico" />
       </head>
       <body>
-        <Home />
+        <Page />
+        <main>{children}</main>
       </body>
     </html>
   );
