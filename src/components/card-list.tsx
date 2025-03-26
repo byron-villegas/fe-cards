@@ -26,22 +26,35 @@ export default function CardList() {
         }
     ];
 
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, cardId: string) => {
+    const handleInteractionMove = (
+        e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>,
+        cardId: string
+    ) => {
         const card = document.getElementById(cardId);
         if (card) {
             const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left; // Mouse X position relative to the card
-            const y = e.clientY - rect.top;  // Mouse Y position relative to the card
+            let x, y;
+    
+            if ("touches" in e) {
+                // Handle touch events
+                x = e.touches[0].clientX - rect.left;
+                y = e.touches[0].clientY - rect.top;
+            } else {
+                // Handle mouse events
+                x = e.clientX - rect.left;
+                y = e.clientY - rect.top;
+            }
+    
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             const rotateX = ((y - centerY) / centerY) * 10; // Adjust rotation intensity
             const rotateY = ((x - centerX) / centerX) * -10;
-
+    
             card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         }
     };
-
-    const handleMouseLeave = (cardId: string) => {
+    
+    const handleInteractionEnd = (cardId: string) => {
         const card = document.getElementById(cardId);
         if (card) {
             card.style.transform = "rotateX(0deg) rotateY(0deg)";
@@ -55,8 +68,10 @@ export default function CardList() {
                     className="col mb-3"
                     id={"card-" + card.name}
                     key={'card-' + (index + 1)}
-                    onMouseMove={(e) => handleMouseMove(e, "card-" + card.name)}
-                    onMouseLeave={() => handleMouseLeave("card-" + card.name)}
+                    onMouseMove={(e) => handleInteractionMove(e, "card-" + card.name)}
+                    onMouseLeave={() => handleInteractionEnd("card-" + card.name)}
+                    onTouchMove={(e) => handleInteractionMove(e, "card-" + card.name)}
+                    onTouchEnd={() => handleInteractionEnd("card-" + card.name)}
                 >
                     <div
                         className="card shadow-sm"
