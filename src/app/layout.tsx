@@ -7,7 +7,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="description" content="Application for my collection cards"></meta>
         <base href="/" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/png" href="/favicon.ico" />
+        <link rel="icon" type="image/webp" href="/favicon.webp" />
       </head>
       <body>
         <main>{children}</main>

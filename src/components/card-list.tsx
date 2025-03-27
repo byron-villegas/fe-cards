@@ -1,125 +1,99 @@
-"use client";
+import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
+import "../styles/card-list.css"; // Import local styles
+import "../styles/globals.css"; // Import custom CSS
 
-import React, { useRef } from "react";
-import Image from "next/image"; // Use Next.js Image component for optimized images
 import Card from "@component/models/card";
+import Image from "next/image"; // Use Next.js Image component for optimized images
+import Link from 'next/link';
 
 export default function CardList() {
-    const hoverStyleRef = useRef<HTMLStyleElement | null>(null);
 
     const cards: Card[] = [
         {
+            id: 'gandalf',
             name: 'Gandalf, White Rider',
+            nameFont: 'jacquard',
+            number: 290,
+            cost: {
+                name: 'mana',
+                value: 3,
+                color: 'white',
+            },
+            strengh: 3,
+            health: 3,
+            damageAndHealthType: 'P/T',
+            rarity: 'rare',
             image: 'https://media.wizards.com/2023/ltr/en_54166525b7.png',
-            type: 'Magic The Gathering',
-            lore: ''
+            saga: 'Magic: The Gathering',
+            type: 'Legendary Creature — Avatar Wizard',
+            expansion: 'The Lord of the Rings: Tales of Middle Earth',
+            text: 'Vigilance\nWhenever you cast a spell, creatures you control get +1/+0 until end of turn. Scry 1.\n When Gandalf dies, you may put it into its owner\'s library fifth from the top.',
+            aditionalText: 'He has passed through the fire and the abyss, and the enemy shall fear him.',
+            artist: 'Ekaterina Burmak'
         },
         {
+            id: 'tamis',
             name: 'Tamis',
-            image: '/Tamis.webp', // Local image example
-            type: 'Mitos y Leyenda',
-            lore: ''
+            nameFont: 'fondamento',
+            number: 1,
+            cost: {
+                name: 'mana',
+                value: 5,
+                color: 'white',
+            },
+            strengh: 3,
+            health: 3,
+            damageAndHealthType: 'P/T',
+            rarity: 'rare',
+            image: '/Tamis.webp',
+            saga: 'Mitos y Leyenda',
+            type: '',
+            expansion: '',
+            text: 'A legendary figure from ancient myths.',
+            aditionalText: '',
+            artist: 'Mauricio Herrera'
         },
         {
+            id: 'wargreymon',
             name: 'Wargreymon',
+            nameFont: 'jersey',
+            number: 1,
+            cost: {
+                name: 'memory',
+                value: 5,
+                color: '',
+            },
+            strengh: 3,
+            health: 3,
+            damageAndHealthType: 'P/T',
+            rarity: 'rare',
             image: '/Wargreymon.webp',
-            type: 'Digimon Card Game',
-            lore: ''
-        }
+            saga: 'Digimon Card Game',
+            type: '',
+            expansion: '',
+            text: 'A powerful Digimon warrior clad in Chrome Digizoid armor.',
+            aditionalText: '',
+            artist: 'Bandai'
+        },
     ];
 
-    const handleInteractionMove = (
-        e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>,
-        cardId: string
-    ) => {
-        const card = document.getElementById(cardId);
-        if (card) {
-            const rect = card.getBoundingClientRect();
-            let posX, posY;
-
-            // Normalizar eventos de mouse y touch
-            if ("touches" in e) {
-                posX = e.touches[0].clientX - rect.left;
-                posY = e.touches[0].clientY - rect.top;
-            } else {
-                posX = e.clientX - rect.left;
-                posY = e.clientY - rect.top;
-            }
-
-            const width = rect.width;
-            const height = rect.height;
-
-            // Calcular posición relativa
-            const px = Math.abs(Math.floor((100 / width) * posX) - 100);
-            const py = Math.abs(Math.floor((100 / height) * posY) - 100);
-
-            const pa = (50 - px) + (50 - py);
-
-            // Calcular transformaciones
-            const lp = 50 + (px - 50) / 1.5;
-            const tp = 50 + (py - 50) / 1.5;
-
-            const pxSpark = 50 + (px - 50) / 7;
-            const pySpark = 50 + (py - 50) / 7;
-            const pOpc = 20 + Math.abs(pa) * 1.5;
-            const rotateX = ((tp - 50) / 2) * -1; // Rotación en X
-            const rotateY = ((lp - 50) / 1.5) * 0.5; // Rotación en Y
-
-            // Aplicar transformaciones al estilo del elemento
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            card.style.transition = "none";
-
-            // Actualizar estilos para gradiente y efectos
-            if (!hoverStyleRef.current) {
-                hoverStyleRef.current = document.createElement("style");
-                document.head.appendChild(hoverStyleRef.current);
-            }
-            const grad_pos = `background-position: ${lp}% ${tp}%;`;
-            const sprk_pos = `background-position: ${pxSpark}% ${pySpark}%;`;
-            const opc = `opacity: ${pOpc / 100};`;
-            hoverStyleRef.current.innerHTML = `
-                #${cardId}:hover:before { ${grad_pos} }  /* gradient */
-                #${cardId}:hover:after { ${sprk_pos} ${opc} }   /* sparkles */
-            `;
-        }
-    };
-
-    const handleInteractionEnd = (cardId: string) => {
-        const card = document.getElementById(cardId);
-        if (card) {
-            // Restablecer transformaciones
-            card.style.transform = "rotateX(0deg) rotateY(0deg)";
-            card.style.transition = "transform 0.5s ease"; // Suavizar el regreso
-
-            // Limpiar estilos
-            if (hoverStyleRef.current) {
-                hoverStyleRef.current.innerHTML = "";
-            }
-        }
-    };
-
     return (
-        <section className="cards">
-            {cards.map((card: Card, index: number) => (
-                <div
-                    className="card-element"
-                    id={"card-" + index}
-                    key={"card-" + index}
-                    onMouseMove={(e) => handleInteractionMove(e, "card-" + index)}
-                    onTouchMove={(e) => handleInteractionMove(e, "card-" + index)}
-                    onMouseLeave={() => handleInteractionEnd("card-" + index)}
-                    onTouchEnd={() => handleInteractionEnd("card-" + index)}
-                >
-                    <Image
-                        id={card.name}
-                        src={card.image}
-                        width={300} // Ajustar ancho para Next.js Image
-                        height={400} // Ajustar alto para Next.js Image
-                        alt={card.name}
-                        title={card.name}
-                    />
-                </div>
-            ))}
-        </section>
+        <div className="container-fluid mt-5">
+            <div className="row row-cols-1 row-cols-md-5">
+                {cards.map((card: Card) => (
+                    <div className="col mb-3" id={`card-${card.id}`} key={`card-${card.id}`}>
+                        <div className="card card-card">
+                            <div className="card-img">
+                                <Link href={`/cards/${card.id}`}>
+                                    <div className="card-element-list">
+                                        <Image src={card.image} className="card-img-top" width={300} height={400} alt={card.name} title={card.name} />
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
     );
 }
