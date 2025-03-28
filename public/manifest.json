@@ -1,7 +1,7 @@
 {
   "name": "Cards",
   "short_name": "Cards",
-  "description": "An application to view and interact with my collection cards.",
+  "description": "An application to view and interact with my cards collection.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f0f0f",
