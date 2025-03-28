@@ -18,10 +18,14 @@ export default function CardViewComponent({ id }: { id: string }) {
     // Obtener datos en el cliente usando useEffect
     useEffect(() => {
         const fetchCard = async () => {
-            const response = await fetch(`${configuration.server.url}/${configuration.server.paths.cards}` , { cache: 'force-cache' });
-            const cards = await response.json();
-            const foundCard = cards.find((card: Card) => card.id == id);
-            setCard(foundCard);
+            try {
+                    // Si no se encuentra, hacer una solicitud directa al servicio `cards/id`
+                    const response = await fetch(`${configuration.server.url}/${configuration.server.paths.cards}/${id}`, { cache: 'force-cache' });
+                    const cardFound = await response.json();
+                    setCard(cardFound);
+            } catch (error) {
+                console.error("Error fetching card data:", error);
+            }
         };
 
         fetchCard();
