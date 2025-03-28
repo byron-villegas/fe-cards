@@ -5,85 +5,27 @@ import "../styles/globals.css"; // Import custom CSS
 import "../styles/card-view.css"; // Import local styles
 
 import Image from "next/image"; // Use Next.js Image component for optimized images
+import { useEffect, useRef, useState } from "react";
 import Card from "@component/models/card";
-import { useRef } from "react";
+import configuration from "@component/config/configuration";
 
-
-export default function CardView({ id }: { id: string }) {
+export default function CardViewComponent({ id }: { id: string }) {
 
     const hoverStyleRef = useRef<HTMLStyleElement | null>(null);
 
-    const cards: Card[] = [
-        {
-            id: 'gandalf',
-            name: 'Gandalf, White Rider',
-            nameFont: 'jacquard',
-            number: 290,
-            cost: {
-                name: 'mana',
-                value: 3,
-                color: 'white',
-            },
-            strengh: 3,
-            health: 3,
-            damageAndHealthType: 'P/T',
-            rarity: 'rare',
-            image: 'https://media.wizards.com/2023/ltr/en_54166525b7.png',
-            saga: 'Magic: The Gathering',
-            type: 'Legendary Creature — Avatar Wizard',
-            expansion: 'The Lord of the Rings: Tales of Middle Earth',
-            text: 'Vigilance\nWhenever you cast a spell, creatures you control get +1/+0 until end of turn. Scry 1.\n When Gandalf dies, you may put it into its owner\'s library fifth from the top.',
-            aditionalText: 'He has passed through the fire and the abyss, and the enemy shall fear him.',
-            artist: 'Ekaterina Burmak'
-        },
-        {
-            id: 'tamis',
-            name: 'Tamis',
-            nameFont: 'fondamento',
-            number: 1,
-            cost: {
-                name: 'mana',
-                value: 5,
-                color: 'white',
-            },
-            strengh: 3,
-            health: 3,
-            damageAndHealthType: 'P/T',
-            rarity: 'rare',
-            image: '/Tamis.webp',
-            saga: 'Mitos y Leyenda',
-            type: '',
-            expansion: '',
-            text: 'A legendary figure from ancient myths.',
-            aditionalText: '',
-            artist: 'Mauricio Herrera'
-        },
-        {
-            id: 'wargreymon',
-            name: 'Wargreymon',
-            nameFont: 'jersey',
-            number: 1,
-            cost: {
-                name: 'memory',
-                value: 5,
-                color: '',
-            },
-            strengh: 3,
-            health: 3,
-            damageAndHealthType: 'P/T',
-            rarity: 'rare',
-            image: '/Wargreymon.webp',
-            saga: 'Digimon Card Game',
-            type: '',
-            expansion: '',
-            text: 'A powerful Digimon warrior clad in Chrome Digizoid armor.',
-            aditionalText: '',
-            artist: 'Bandai'
-        },
-    ];
+    const [card, setCard] = useState<Card>();
 
-    // Buscar la carta por ID
-    const card = cards.find((card) => card.id === id);
+    // Obtener datos en el cliente usando useEffect
+    useEffect(() => {
+        const fetchCard = async () => {
+            const response = await fetch(`${configuration.server.url}/${configuration.server.paths.cards}` , { cache: 'force-cache' });
+            const cards = await response.json();
+            const foundCard = cards.find((card: Card) => card.id == id);
+            setCard(foundCard);
+        };
+
+        fetchCard();
+    }, [id]);
 
     if (!card) {
         return <div className="container mt-5">Card not found</div>;

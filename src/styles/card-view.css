@@ -1,18 +1,17 @@
-@import url(https://fonts.googleapis.com/css?family=Jacquard+24);
+@import url(https://fonts.googleapis.com/css?family=Metal+Mania);
 @import url(https://fonts.googleapis.com/css?family=Jersey+10);
-@import url(https://fonts.googleapis.com/css?family=Fondamento);
+@import url(https://fonts.googleapis.com/css?family=Eagle+Lake);
 
-
-.font-jacquard {
-  font-family: 'Jacquard 24';
+.font-metal-mania {
+  font-family: 'Metal Mania';
 }
 
 .font-jersey {
   font-family: 'Jersey 10';
 }
 
-.font-fondamento {
-  font-family: 'Fondamento';
+.font-eagle-lake {
+  font-family: 'Eagle Lake';
 }
 
 .card-details {
