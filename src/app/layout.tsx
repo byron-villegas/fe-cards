@@ -8,6 +8,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <base href="/" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/webp" href="/favicon.webp" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body>
         <main>{children}</main>
