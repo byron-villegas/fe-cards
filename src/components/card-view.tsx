@@ -9,6 +9,19 @@ import { useEffect, useRef, useState } from "react";
 import Card from "@component/models/card";
 import configuration from "@component/config/configuration";
 
+function fontBySaga(saga: string): string {
+    switch (saga) {
+        case "Magic The Gathering":
+            return "font-beleren-bold";
+        case "Mitos y Leyendas":
+            return "font-eagle-lake";
+        case "Digimon Card Game":
+            return "jersey";
+        default:
+            return "font-default";
+    }
+}
+
 export default function CardViewComponent({ id }: { id: string }) {
 
     const hoverStyleRef = useRef<HTMLStyleElement | null>(null);
@@ -129,7 +142,7 @@ export default function CardViewComponent({ id }: { id: string }) {
 
                 {/* Columna derecha: Detalles de la carta */}
                 <div className="col-md-5 mt-3 card-details">
-                    <h1 className={"mb-3 " + "font-" + card.nameFont}>{card.name}</h1>
+                    <h1 className={"mb-3 " +  fontBySaga(card.saga)}>{card.name}</h1>
                     <p><strong>Card name:</strong> {card.name}</p>
                     <p><strong>Card number:</strong> {card.number}</p>
                     <p><strong>Rarity:</strong> {card.rarity}</p>

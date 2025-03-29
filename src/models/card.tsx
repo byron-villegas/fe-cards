@@ -3,7 +3,6 @@ import Cost from "./cost";
 export default interface Card {
     id: string;
     name: string;
-    nameFont: string;
     number: number;
     cost: Cost;
     strengh: number;

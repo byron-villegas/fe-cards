@@ -1,9 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Metal+Mania);
 @import url(https://fonts.googleapis.com/css?family=Jersey+10);
 @import url(https://fonts.googleapis.com/css?family=Eagle+Lake);
 
-.font-metal-mania {
-  font-family: 'Metal Mania';
+.font-beleren-bold {
+  font-family: 'Beleren Bold';
 }
 
 .font-jersey {
@@ -12,6 +11,10 @@
 
 .font-eagle-lake {
   font-family: 'Eagle Lake';
+}
+
+.font-default {
+  font-family: monospace;
 }
 
 .card-details {
