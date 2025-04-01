@@ -9,7 +9,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/webp" href="/favicon.webp" />
         <link rel="manifest" href="/manifest.json" />
-        <link href="https://unpkg.com/@saeris/typeface-beleren-bold@latest/index.css" rel="stylesheet" type="text/css" />
       </head>
       <body>
         <main>{children}</main>

@@ -5,7 +5,7 @@ export default interface Card {
     name: string;
     number: number;
     cost: Cost;
-    strengh: number;
+    strength: number;
     health: number;
     damageAndHealthType: string;
     rarity: string;
@@ -16,4 +16,5 @@ export default interface Card {
     text: string;
     aditionalText: string;
     artist: string;
+    count: number;
 }

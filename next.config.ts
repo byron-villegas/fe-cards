@@ -5,9 +5,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'www.paytowin.cl',
+        hostname: 'media.wizards.com',
         port: '',
-        pathname: '**',
+        pathname: '/**',
         search: '',
       },
     ],
