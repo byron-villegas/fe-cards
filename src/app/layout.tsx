@@ -1,17 +1,26 @@
+import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
+import '@style/global.css';
+
+import Head from "next/head";
+
+export const metadata = {
+  title: "Cards",
+  description: "An application to view and interact with my cards collection.",
+  icons: {
+    icon: "/favicon.webp",
+  },
+  manifest: "/webmanifest.json",
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <head>
+      <Head>
         <meta charSet="utf-8" />
-        <title>Cards</title>
-        <meta name="description" content="An application to view and interact with my cards collection."></meta>
-        <base href="/" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/webp" href="/favicon.webp" />
-        <link rel="manifest" href="/manifest.json" />
-      </head>
+      </Head>
       <body>
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );

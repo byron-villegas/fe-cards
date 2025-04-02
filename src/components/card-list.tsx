@@ -1,8 +1,6 @@
-import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
-import "../styles/card-list.css"; // Import local styles
-import "../styles/globals.css"; // Import custom CSS
+import "@style/CardListComponent.css"; // Import local styles
 
-import Card from "@component/models/card";
+import Card from "@model/card";
 import Image from "next/image"; // Use Next.js Image component for optimized images
 import Link from 'next/link';
 

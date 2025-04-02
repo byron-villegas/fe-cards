@@ -1,10 +1,6 @@
-import CardViewComponent from '@component/components/card-view';
+import CardViewComponent from '@component/card-view';
 
-export default async function CardViewPage({
-  params,
-}: {
-  params: Promise<{ id: string }>
-}) {
+export default async function CardViewPage({ params }: { params: Promise<{ id: string }> }) {
 
   const { id } = await params;
 

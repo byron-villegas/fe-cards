@@ -1,16 +1,13 @@
 "use client";
 
-import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
-import "../styles/globals.css"; // Import custom CSS
-import "../styles/card-view.css"; // Import local styles
-import "@saeris/typeface-beleren-bold" // Magic font
-
+import "@saeris/typeface-beleren-bold"; // Magic font
 import VanillaTilt from 'vanilla-tilt'; // Import VanillaTilt for tilt effect
+import "@style/CardViewComponent.css"; // Import local styles
 
+import configuration from "@config/configuration";
+import Card from "@model/card";
 import Image from "next/image"; // Use Next.js Image component for optimized images
 import { useEffect, useRef, useState } from "react";
-import Card from "@component/models/card";
-import configuration from "@component/config/configuration";
 
 function fontBySaga(saga: string): string {
     switch (saga) {
@@ -53,6 +50,7 @@ export default function CardViewComponent({ id }: { id: string }) {
                 speed: 400, // Velocidad de animación
                 glare: true, // Habilitar efecto de brillo
                 "max-glare": 0.5, // Máximo brillo
+                gyroscope: true // Habilitar giroscopio
             });
         }
     }, [card]);
@@ -70,12 +68,12 @@ export default function CardViewComponent({ id }: { id: string }) {
                         ref={tiltRef} // Asignar el ref al contenedor
                         className="card-element"
                         id={"card-" + card.id}
-                        key={"card-" + card.id} >
+                        key={"card-" + card.id}>
                         <Image
                             src={card.image}
                             alt={card.name}
                             priority={true}
-                            width={400}
+                            width={450}
                             height={600} />
                     </div>
                 </div>
