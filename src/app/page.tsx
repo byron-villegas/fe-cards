@@ -1,3 +1,3 @@
-export default function Page({ children }: { children: React.ReactNode }) {
-    return <div className="container-fluid">{children}</div>
+export default function Page() {
+    return <div className="container-fluid"></div>
 }
