@@ -44,14 +44,34 @@ export default function CardViewComponent({ id }: { id: string }) {
     // Inicializar VanillaTilt
     useEffect(() => {
         if (tiltRef.current && card) {
-            console.log("Inicializando VanillaTilt...");
             VanillaTilt.init(tiltRef.current, {
                 max: 25, // Máxima inclinación
                 speed: 400, // Velocidad de animación
                 glare: true, // Habilitar efecto de brillo
                 "max-glare": 0.5, // Máximo brillo
-                gyroscope: true // Habilitar giroscopio
+                gyroscope: false, // Habilitar giroscopio para touch
             });
+
+            // Listener para convertir touch en mousemove
+            const handleTouchMove = (e: TouchEvent) => {
+                if (tiltRef.current) {
+                    const touch = e.touches[0];
+                    const mouseEvent = new MouseEvent("mousemove", {
+                        bubbles: true,
+                        cancelable: true,
+                        clientX: touch.clientX,
+                        clientY: touch.clientY,
+                    });
+                    tiltRef.current.dispatchEvent(mouseEvent);
+                }
+            };
+
+            // Agregar y limpiar eventos de touch
+            tiltRef.current.addEventListener("touchmove", handleTouchMove);
+            return () => {
+                tiltRef.current?.removeEventListener("touchmove", handleTouchMove);
+                (tiltRef.current as unknown as VanillaTilt)?.destroy(); // Destruir instancia de VanillaTilt
+            };
         }
     }, [card]);
 
