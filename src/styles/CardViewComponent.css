@@ -29,3 +29,7 @@ p {
 .card-text {
   white-space: pre-line;
 }
+
+.card-element {
+  touch-action: none;
+}
