@@ -16,8 +16,8 @@ export default function CardSagaCategoryComponent() {
     }
     
     return (
-        <div className="container-fluid">
-            <h1 className="text-white text-center mb-3 font-audiowide"><strong>SAGAS</strong></h1>
+        <div className="container-fluid text-center">
+            <h1 className="text-white mb-3 font-audiowide"><strong>SAGAS</strong></h1>
             <div className="row row-cols-1 row-cols-lg-4 g-2 g-lg-3">
                 <div className="col">
                     <Link href="/cards/digimon">
