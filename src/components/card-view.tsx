@@ -15,7 +15,7 @@ function fontBySaga(saga: string): string {
             return "font-beleren-bold";
         case "Mitos y Leyendas":
             return "font-eagle-lake";
-        case "Digimon Card Game":
+        case "Digimon":
             return "font-jersey";
         default:
             return "font-default";
