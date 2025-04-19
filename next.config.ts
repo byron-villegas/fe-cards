@@ -8,8 +8,8 @@ const nextConfig: NextConfig = {
         hostname: 'media.wizards.com',
         port: '',
         pathname: '/**',
-        search: '',
-      },
+        search: ''
+      }
     ]
   }
 };

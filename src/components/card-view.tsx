@@ -16,7 +16,7 @@ function fontBySaga(saga: string): string {
         case "Mitos y Leyendas":
             return "font-eagle-lake";
         case "Digimon Card Game":
-            return "jersey";
+            return "font-jersey";
         default:
             return "font-default";
     }
@@ -70,7 +70,11 @@ export default function CardViewComponent({ id }: { id: string }) {
             tiltRef.current.addEventListener("touchmove", handleTouchMove);
             return () => {
                 tiltRef.current?.removeEventListener("touchmove", handleTouchMove);
-                (tiltRef.current as unknown as VanillaTilt)?.destroy(); // Destruir instancia de VanillaTilt
+
+                // Validar si tiltRef.current es una instancia de VanillaTilt
+                if (tiltRef.current && "vanillaTilt" in tiltRef.current) {
+                    (tiltRef.current as unknown as VanillaTilt)?.destroy(); // Destruir instancia de VanillaTilt
+                }
             };
         }
     }, [card]);
@@ -80,10 +84,10 @@ export default function CardViewComponent({ id }: { id: string }) {
     }
 
     return (
-        <div className="container mt-3">
+        <div className="container">
             <div className="row">
                 {/* Columna izquierda: Imagen de la carta */}
-                <div className="col-md-4">
+                <div className="col-md-5">
                     <div
                         ref={tiltRef} // Asignar el ref al contenedor
                         className="card-element"
@@ -94,13 +98,14 @@ export default function CardViewComponent({ id }: { id: string }) {
                             alt={card.name}
                             priority={true}
                             width={450}
-                            height={600} />
+                            height={600}
+                            style={{ width: '100%', height: '100%' }} />
                     </div>
                 </div>
 
                 {/* Columna derecha: Detalles de la carta */}
                 <div className="col-md-5 mt-3 card-details">
-                    <h1 className={"mb-3 " + fontBySaga(card.saga)}>{card.name}</h1>
+                    <h1 className={"mt-2 mb-3 " + fontBySaga(card.saga)}>{card.name}</h1>
                     <p><strong>Card name:</strong> {card.name}</p>
                     <p><strong>Card number:</strong> {card.number}</p>
                     <p><strong>Rarity:</strong> {card.rarity}</p>

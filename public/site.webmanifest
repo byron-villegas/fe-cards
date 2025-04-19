@@ -1,0 +1,90 @@
+{
+  "name": "Cards",
+  "short_name": "Cards",
+  "description": "An application to view and interact with my cards collection.",
+  "categories": [
+    "cards",
+    "collection",
+    "hobby"
+  ],
+  "id": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#0f0f0f",
+  "theme_color": "#0f0f0f",
+  "icons": [
+    {
+      "src": "/images/favicon/favicon_16x16.webp",
+      "sizes": "16x16",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/favicon/favicon_20x20.webp",
+      "sizes": "20x20",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/favicon/favicon_24x24.webp",
+      "sizes": "24x24",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/favicon/favicon_32x32.webp",
+      "sizes": "32x32",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/favicon/favicon_48x48.webp",
+      "sizes": "48x48",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/favicon/favicon_64x64.webp",
+      "sizes": "64x64",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/favicon/favicon_72x72.webp",
+      "sizes": "72x72",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/favicon/favicon_128x128.webp",
+      "sizes": "128x128",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/favicon/favicon_196x196.webp",
+      "sizes": "196x196",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/favicon/favicon_256x256.webp",
+      "sizes": "256x256",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/favicon/favicon_512x512.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshots/screenshot_desktop.jpeg",
+      "sizes": "1788x1008",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Homepage"
+    },
+    {
+      "src": "/images/screenshots/screenshot_mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "platform": "mobile",
+      "label": "Homepage"
+    }
+  ],
+  "lang": "en"
+}
