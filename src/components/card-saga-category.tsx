@@ -1,5 +1,7 @@
 "use client";
 
+import "@style/CardSagaCategoryComponent.css"; // Import local styles
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,7 +17,7 @@ export default function CardSagaCategoryComponent() {
     
     return (
         <div className="container-fluid">
-            <h2 className="text-white text-center mb-3"><strong>SAGAS</strong></h2>
+            <h1 className="text-white text-center mb-3 font-audiowide"><strong>SAGAS</strong></h1>
             <div className="row row-cols-1 row-cols-lg-4 g-2 g-lg-3">
                 <div className="col">
                     <Link href="/cards/digimon">
