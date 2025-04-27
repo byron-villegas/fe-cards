@@ -33,3 +33,7 @@ p {
 .card-element {
   touch-action: none;
 }
+
+.card-element img {
+  border-radius: 26px;
+}

@@ -3,3 +3,7 @@
     border-color: transparent;
     background-color: transparent;
 }
+
+.card-element {
+    border-radius: 18px;
+}
