@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Jersey+10);
 @import url(https://fonts.googleapis.com/css?family=Eagle+Lake);
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text);
 
 .font-beleren-bold {
   font-family: 'Beleren Bold';
@@ -15,6 +16,10 @@
 
 .font-default {
   font-family: monospace;
+}
+
+.font-crimson-text {
+  font-family: 'Crimson Text';
 }
 
 .card-details {
@@ -36,4 +41,15 @@ p {
 
 .card-element img {
   border-radius: 26px;
+}
+
+.card-list {
+  background-color: #252525;
+  border-color: #3a3a3a;
+}
+
+.mt-1-mw {
+  @media screen and (max-width: 768px) {
+    margin-top: 1rem;
+  }
 }
