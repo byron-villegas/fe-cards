@@ -1,13 +1,13 @@
 "use client";
 
-import "@style/CardSagaCategoryComponent.css"; // Import local styles
+import "@style/CardGameCategoryComponent.css"; // Import local styles
 
 import Image from "next/image";
 import Link from "next/link";
 
 import { usePathname } from "next/navigation";
 
-export default function CardSagaCategoryComponent() {
+export default function CardGameCategoryComponent() {
     const pathname = usePathname(); // Obtener la ruta actual
 
     // Solo debe mostrarse en la ruta raiz
@@ -17,7 +17,7 @@ export default function CardSagaCategoryComponent() {
     
     return (
         <div className="container-fluid text-center">
-            <h1 className="text-white mb-3 font-audiowide"><strong>SAGAS</strong></h1>
+            <h1 className="text-white mb-3 font-audiowide"><strong>GAMES</strong></h1>
             <div className="row row-cols-1 row-cols-lg-4 g-2 g-lg-3">
                 <div className="col">
                     <Link href="/cards/digimon">

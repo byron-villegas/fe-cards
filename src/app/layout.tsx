@@ -5,7 +5,7 @@ import Head from "next/head";
 
 import InstallBootstrap from "@component/install-bootstrap";
 import NavbarComponent from "@component/navbar";
-import CardSagaCategoryComponent from "@component/card-saga-category";
+import CardGameCategoryComponent from "@component/card-game-category";
 
 export const metadata = {
   title: "Cards",
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <InstallBootstrap /> {/* Include the component to install Bootstrap JS */}
         <NavbarComponent /> {/* Include the Navbar component */}
-        <CardSagaCategoryComponent /> {/* Include the Card Category component */}
+        <CardGameCategoryComponent /> {/* Include the Card Category component */}
         {children}
       </body>
     </html>

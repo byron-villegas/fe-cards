@@ -9,8 +9,8 @@ import Card from "@model/card";
 import Image from "next/image"; // Use Next.js Image component for optimized images
 import { useEffect, useRef, useState } from "react";
 
-function fontBySaga(saga: string): string {
-    switch (saga) {
+function fontByGame(game: string): string {
+    switch (game) {
         case "Magic The Gathering":
             return "font-beleren-bold";
         case "Mitos y Leyendas":
@@ -94,7 +94,7 @@ export default function CardViewComponent({ id }: { id: string }) {
                         id={"card-" + card.id}
                         key={"card-" + card.id}>
                         <Image
-                            src={card.image}
+                            src={card.imageUrl}
                             alt={card.name}
                             priority={true}
                             width={450}
@@ -105,17 +105,18 @@ export default function CardViewComponent({ id }: { id: string }) {
 
                 {/* Columna derecha: Detalles de la carta */}
                 <div className="col-md-5 mt-3 card-details">
-                    <h1 className={"mt-2 mb-3 " + fontBySaga(card.saga)}>{card.name}</h1>
+                    <h1 className={"mt-2 mb-3 " + fontByGame(card.game)}>{card.name}</h1>
                     <p><strong>Card name:</strong> {card.name}</p>
                     <p><strong>Card number:</strong> {card.number}</p>
-                    <p><strong>Rarity:</strong> {card.rarity}</p>
-                    <p className="text-capitalize"><strong>{card.cost.name}:</strong> {card.cost.value} {card.cost.color}</p>
-                    <p><strong>{card.damageAndHealthType}:</strong> {card.strength} / {card.health}</p>
+                    <p><strong>Rarity:</strong> {card.attributes.rarity}</p>
+                    <p className="text-capitalize"><strong>{card.attributes.element}:</strong> {card.attributes.manaCost} {card.attributes.color}</p>
+                    <p><strong>Attack:</strong> {card.stats.attack}</p>
+                    <p><strong>Defense:</strong> {card.stats.defense}</p>
+                    <p><strong>Health:</strong> {card.stats.health}</p>
                     <p><strong>Type:</strong> {card.type}</p>
-                    <p><strong>Expansion:</strong> {card.expansion}</p>
-                    <p className="card-text"><strong>Card text:</strong> {card.text}</p>
-                    <p className="card-text"><strong>Aditional text:</strong> {card.aditionalText}</p>
-                    <p><strong>Saga:</strong> {card.saga}</p>
+                    <p><strong>Expansion:</strong> {card.set.name}</p>
+                    <p className="card-text"><strong>Card text:</strong> {card.description}</p>
+                    <p><strong>Game:</strong> {card.game}</p>
                     <p><strong>Artist:</strong> {card.artist}</p>
                     <p><strong>Count:</strong> {card.count}</p>
                 </div>

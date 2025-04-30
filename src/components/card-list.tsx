@@ -13,7 +13,7 @@ export default function CardListComponent({ cards }: { cards: Card[] }) {
                         <div className="card">
                             <Link href={`/card/${card.id}`}>
                                 <div>
-                                    <Image src={card.image} width={300} height={400} alt={card.name} title={card.name} className="card-element" />
+                                    <Image src={card.imageUrl} width={300} height={400} alt={card.name} title={card.name} className="card-element" />
                                 </div>
                             </Link>
                         </div>
