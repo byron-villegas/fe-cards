@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function FooterComponent() {
-    let currentYear: number = new Date().getFullYear();
+    const currentYear: number = new Date().getFullYear();
 
     return (
         <footer className="container py-5 mt-5">
@@ -34,7 +34,7 @@ export default function FooterComponent() {
                 </div>
             </div>
             <div className="container-fluid text-center vertical-line">
-                <p className="fw-light text-white mt-2">Copyright © 2025. Todos los derechos reservados. Desarrollado por <a className="link-light link-underline-opacity-0 link-opacity-75-hover" href="https://cl.linkedin.com/in/byron-villegas-moya" target="_blank">Byron Villegas Moya</a></p>
+                <p className="fw-light text-white mt-2">Copyright © 2025. Todos los derechos reservados. Desarrollado por <Link className="link-light link-underline-opacity-0 link-opacity-75-hover" href="https://cl.linkedin.com/in/byron-villegas-moya" target="_blank">Byron Villegas Moya</Link></p>
             </div>
         </footer>
     );
