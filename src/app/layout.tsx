@@ -1,11 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
 import '@style/global.css';
+import 'font-awesome/css/font-awesome.css'; // Import Font Awesome CSS
 
 import Head from "next/head";
 
 import InstallBootstrap from "@component/install-bootstrap";
 import NavbarComponent from "@component/navbar";
 import CardGameCategoryComponent from "@component/card-game-category";
+import FooterComponent from "@component/footer";
+import NavigationComponent from "@component/navigation";
 
 export const metadata = {
   title: "Cards",
@@ -27,7 +30,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <InstallBootstrap /> {/* Include the component to install Bootstrap JS */}
         <NavbarComponent /> {/* Include the Navbar component */}
         <CardGameCategoryComponent /> {/* Include the Card Category component */}
+        <NavigationComponent /> {/* Include the Navigation component */}
         {children}
+        <FooterComponent /> {/* Include the Footer component */}
       </body>
     </html>
   );
