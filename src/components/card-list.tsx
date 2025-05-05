@@ -9,7 +9,7 @@ export default function CardListComponent({ cards }: { cards: Card[] }) {
         <div className="container-fluid">
             <div className="row row-cols-1 row-cols-lg-5 g-2 g-lg-3">
                 {cards.map((card: Card) => (
-                    <div className="col mb-3" id={`card-${card.id}`} key={`card-${card.id}`} style={{"width": "auto"}}>
+                    <div className="col mb-3" id={`card-${card.id}`} key={`card-${card.id}`}>
                         <div className="card">
                             <Link href={`/card/${card.id}`}>
                                 <div>
