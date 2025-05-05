@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/byron-villegas/fe-cards",
   "engines": {
-    "node": ">=vv21.7.3"
+    "node": ">=v21.7.3"
   },
   "scripts": {
     "dev": "next dev --turbopack",
