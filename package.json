@@ -1,12 +1,29 @@
 {
   "name": "fe-cards",
+  "description": "App for my card collection",
   "version": "1.0.0",
   "private": true,
   "author": {
-    "name": "Byron Villegas Moya",
+    "name": "Byron Villegas",
     "email": "byronvillegasm@gmail.com"
   },
   "license": "MIT",
+  "keywords": [
+    "Nextjs",
+    "Cards",
+    "Collection"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/byron-villegas/fe-cards"
+  },
+  "bugs": {
+    "url": "https://github.com/byron-villegas/fe-cards/issues"
+  },
+  "homepage": "https://github.com/byron-villegas/fe-cards",
+  "engines": {
+    "node": ">=vv21.7.3"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
