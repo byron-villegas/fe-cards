@@ -1,6 +1,6 @@
 const configuration = {
     server: {
-        url: 'http://localhost:8080/api',
+        url: 'https://ms-cards.onrender.com/api',
         paths: {
             cards: 'cards',
         }
