@@ -2,15 +2,22 @@
   "name": "Cards",
   "short_name": "Cards",
   "description": "An application to view and interact with my cards collection.",
+  "author": "Byron Villegas Moya",
+  "developer": {
+    "name": "Byron Villegas Moya",
+    "email": "byronvillegasm@gmail.com",
+    "url": "https://www.linkedin.com/in/byron-villegas-moya"
+  },
   "categories": [
-    "cards",
-    "collection",
-    "hobby"
+    "Cards",
+    "Collection",
+    "Hobby"
   ],
   "id": "/",
   "start_url": "/",
   "display": "standalone",
   "orientation": "landscape",
+  "default_locale": "en",
   "background_color": "#0f0f0f",
   "theme_color": "#0f0f0f",
   "icons": [
@@ -85,6 +92,5 @@
       "platform": "mobile",
       "label": "Homepage"
     }
-  ],
-  "lang": "en"
+  ]
 }
