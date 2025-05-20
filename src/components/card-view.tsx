@@ -110,7 +110,7 @@ export default function CardViewComponent({ id }: { id: string }) {
                         id={"card-" + card.id}
                         key={"card-" + card.id}>
                         <Image
-                            src={card.imageUrl}
+                            src={card.imageUrl.includes('//') ? card.imageUrl : `/images/${card.game.toLowerCase()}/${card.imageUrl}`}
                             alt={card.name}
                             priority={true}
                             width={450}
