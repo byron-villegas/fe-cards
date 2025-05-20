@@ -8,8 +8,6 @@ export default async function CardGamePage({ params }: { params: Promise<{ game:
     const cards: Card[] = await response.json();
 
     return (
-        <div className="container-fluid">
-            <CardListComponent cards={cards} />
-        </div>
+        <CardListComponent cards={cards} />
     );
 }

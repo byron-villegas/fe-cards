@@ -18,7 +18,7 @@ export default function CardGameCategoryComponent() {
     return (
         <div className="container-fluid text-center">
             <h1 className="text-white mb-3 font-audiowide"><strong>GAMES</strong></h1>
-            <div className="row row-cols-1 row-cols-lg-4 g-2 g-lg-3">
+            <div className="row row-cols-1 row-cols-lg-4 g-2 justify-content-center">
                 <div className="col">
                     <Link href="/cards/digimon">
                         <Image src="/images/logos/Digimon.png" alt="Digimon" width={600} height={180} style={{ width: '85%', height: '80%' }} />
