@@ -138,7 +138,7 @@ export default function CardViewComponent({ id }: { id: string }) {
                                         <>
                                             <p><strong>HP:</strong> {card.stats.health}</p>
                                             <p><strong>Weakness:</strong> {card.stats.weaknessType} x {card.stats.weakness}</p>
-                                            <p><strong>Resistance:</strong> {card.stats.resistance == 0 ? <></> : (<>{card.stats.resistanceType} x {card.stats.resistance}</>)}</p>
+                                            <p><strong>Resistance:</strong> {card.stats.resistance == 0 ? <></> : (<>{card.stats.resistanceType} - {card.stats.resistance}</>)}</p>
                                             <p><strong>Retreat: </strong> {card.stats.retreatCost}</p>
                                         </>
                                     );
