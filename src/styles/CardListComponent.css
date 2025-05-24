@@ -6,6 +6,7 @@
 
 .card-element {
     border-radius: 18px;
+    user-select: none;
 }
 
 .col {

@@ -37,6 +37,7 @@ p {
 
 .card-element {
   touch-action: none;
+  user-select: none;
 }
 
 .card-element img {
